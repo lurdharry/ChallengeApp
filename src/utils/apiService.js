@@ -1,11 +1,9 @@
 import Axios from "axios";
 import PropTypes from "prop-types";
-import Config from "react-native-config";
 import showToast from "../common/Toast";
 import { CANCEL_REQUEST } from "../store/actions/types";
 import { store } from "../store";
-
-const { BASE_URL } = Config;
+import { BASE_URL } from "../common/index";
 
 /**
  * Utility that calls the backend api service

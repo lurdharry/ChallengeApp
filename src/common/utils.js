@@ -14,3 +14,4 @@ export const wp = value => {
   const dimension = (value / CustomWidth) * 100;
   return wdp(`${dimension}%`);
 };
+export const BASE_URL = "https://5f1bee45254cec00160825ee.mockapi.io/api/v1";
