@@ -1,0 +1,13 @@
+export const CREATE_ACTIVITY = "create_activity";
+export const CREATE_ACTIVITY_SUCCESS = "create_activity_success";
+export const CREATE_ACTIVITY_ERROR = "create_activity_error";
+export const GET_ALL_ACTIVITIES = "get_all_activities";
+export const GET_ALL_ACTIVITIES_SUCCESS = "get_all_activities_success";
+export const GET_ALL_ACTIVITIES_ERROR = "get_all_activities_error";
+export const EDIT_ACTIVITY = "edit_activity";
+export const EDIT_ACTIVITY_SUCCESS = "edit_activity_success";
+export const EDIT_ACTIVITY_ERROR = "edit_activity_error";
+export const DELETE_ACTIVITY = "delete_activity";
+export const DELETE_ACTIVITY_SUCCESS = "delete_activity_success";
+export const DELETE_ACTIVITY_ERROR = "delete_activity_error";
+export const CANCEL_REQUEST = "cancel_request";
