@@ -91,7 +91,7 @@ export const Details = props => {
             />
             {start_Date ? (
               <TextInput
-                value={moment(start_Date).format("DD.MM.YYYY • LT")}
+                value={moment(start_Date).format("LLLL")}
                 isEditable={false}
                 style={styles.nameContainer}
               />
@@ -107,7 +107,7 @@ export const Details = props => {
             />
             {end_Date ? (
               <TextInput
-                value={moment(end_Date).format("DD.MM.YYYY • LT")}
+                value={moment(end_Date).format("LLLL")}
                 isEditable={false}
                 style={styles.nameContainer}
               />

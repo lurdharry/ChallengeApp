@@ -89,7 +89,7 @@ export const CreateActivity = () => {
             />
             {startDate ? (
               <TextInput
-                value={moment(startDate).format("DD.MM.YYYY • LT")}
+                value={moment(startDate).format("LLLL")}
                 isEditable={false}
                 style={styles.nameContainer}
               />
@@ -105,7 +105,7 @@ export const CreateActivity = () => {
             />
             {endDate ? (
               <TextInput
-                value={moment(startDate).format("DD.MM.YYYY • LT")}
+                value={moment(startDate).format("LLLL")}
                 //   value={moment(startDate, "YYYYMMDD")}
                 isEditable={false}
                 style={styles.nameContainer}
