@@ -1,59 +1,63 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-} from "react-native";
+import { Actions } from "react-native-router-flux";
+
+import { StyleSheet, SafeAreaView, Image, Dimensions } from "react-native";
 import {
   hp,
   RegularText,
-  Red,
-  PaBlack200,
   wp,
   Button,
-  PaYellow,
+  MainView,
+  BackgroundView,
+  DarkBlue,
 } from "../common";
+import { Guest } from "../assets/images";
+import { StatusBar } from "expo-status-bar";
 
-export default function Home() {
+export const Home = ({ navigation }) => {
   return (
     <>
-      <SafeAreaView>
-        <View style={styles.container}>
+      <StatusBar backgroundColor={DarkBlue} />
+      <BackgroundView>
+        <MainView>
+          <RegularText title="Welcome Back," style={styles.title} />
+          <Image source={Guest} resizeMode="contain" style={styles.picture} />
           <RegularText
-            title="Welcome to your Activity Monitor"
-            style={styles.title}
+            title="What would you like to do today?"
+            style={styles.action}
           />
-          <RegularText title="select an Action" style={styles.action} />
           <Button
             buttonStyle={styles.button}
             containerStyle={styles.buttonContainer}
             title="create an activity"
+            onPress={() => Actions.create_activity()}
           />
           <Button
             buttonStyle={styles.button}
             containerStyle={styles.buttonContainer}
-            title="My Activities"
+            title="Check my Activities"
+            onPress={() => Actions.all_activities()}
           />
-        </View>
-      </SafeAreaView>
+        </MainView>
+      </BackgroundView>
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  ggg: {
-    height: 90,
+  picture: {
+    height: hp(200),
+    width: wp(130),
+    alignSelf: "center",
+    marginTop: hp(30),
   },
   buttonContainer: {
     alignSelf: "center",
     width: wp(300),
     height: hp(50),
-    marginTop: hp(10),
+    marginTop: hp(30),
   },
   button: {
-    backgroundColor: PaYellow,
     width: wp(300),
     height: hp(50),
     alignSelf: "center",
@@ -63,14 +67,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   title: {
-    // color: Red,
+    marginLeft: wp(25),
     fontSize: hp(40),
     textAlign: "center",
-    marginTop: hp(30),
+    // marginTop: hp(30),
+    alignSelf: "flex-start",
   },
   action: {
-    fontSize: hp(40),
+    fontSize: hp(20),
     textAlign: "center",
-    marginTop: hp(30),
+    marginTop: hp(40),
   },
 });
