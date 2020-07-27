@@ -42,16 +42,9 @@ export const Header = ({
   );
 };
 
-export const MainHeader = ({ props, title, titleStyle }) => {
-  return props ? (
-    <View style={styles.mainHeader}>{props.chilren}</View>
-  ) : (
-    <RegularText title={title} style={[styles.mainHeader, titleStyle]} />
-  );
-};
 const styles = StyleSheet.create({
   menuHeader: {
-    marginTop: Platform.OS === "ios" ? (isIPhoneX() ? hp(40) : hp(20)) : 0,
+    marginTop: Platform.OS === "ios" ? hp(40) : 0,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",

@@ -1,12 +1,11 @@
 /* eslint-disable consistent-return */
 import React, { useState } from "react";
-import { StyleSheet, View, Platform } from "react-native";
-import { hp, wp, TextInput, TextArea, RegularText, Button } from "./index";
+import { StyleSheet } from "react-native";
+import { hp, wp, TextInput, TextArea, Button } from "./index";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import * as Colors from "./Colors";
 import { createActivity } from "../store/actions/activityAction";
 import { TransactionLoader } from "./loader";
 

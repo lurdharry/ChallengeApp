@@ -83,13 +83,13 @@ export const ViewDetailsBottomSheet = ({ details }) => {
       <TextInput
         isEditable={false}
         label="Start Date and Time"
-        value={moment(startDate).format("DD.MM.YYYY • LT")}
+        value={moment(startDate).format("LLLL")}
         labelStyle={styles.label}
       />
       <TextInput
         isEditable={false}
         label="End Date and Time"
-        value={moment(endDate).format("DD.MM.YYYY • LT")}
+        value={moment(endDate).format("LLLL")}
         labelStyle={styles.label}
       />
       <RegularText title="Description" style={styles.desText} />
@@ -97,6 +97,7 @@ export const ViewDetailsBottomSheet = ({ details }) => {
         <RegularText
           multiLine={true}
           title={description}
+          style={[{ fontFamily: "Graphik-Medium", fontSize: 12 }]}
           // style={styles.desText}
         />
       </View>
@@ -105,9 +106,9 @@ export const ViewDetailsBottomSheet = ({ details }) => {
 };
 
 const styles = StyleSheet.create({
-  label: { fontSize: hp(14), marginTop: hp(10) },
+  label: { fontSize: hp(14), marginTop: hp(10), color: Colors.DarkBlue },
   desText: {
-    color: Colors.LightGrey,
+    color: Colors.DarkBlue,
     marginTop: hp(10),
   },
   des: {
@@ -117,10 +118,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp(15),
     paddingVertical: hp(15),
   },
-  description: {
-    paddingVertical: hp(15),
-    height: hp(100),
-  },
+
   container: {
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,

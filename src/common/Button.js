@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   title: {
-    // fontFamily: "Graphik-Medium",
+    fontFamily: "Graphik-Medium",
     fontSize: 16,
     color: Colors.White,
     marginTop: Platform.OS === "android" ? -hp(7) : 0,
   },
   paleTitle: {
-    // fontFamily: "Graphik-Medium",
+    fontFamily: "Graphik-Medium",
     fontSize: 16,
     color: Colors.DarkBlue,
     marginTop: Platform.OS === "android" ? -hp(7) : 0,
@@ -67,39 +67,5 @@ const styles = StyleSheet.create({
   },
   disabledTitleStyle: {
     color: Colors.White,
-  },
-  actionButton: {
-    backgroundColor: Colors.Smoke100Light,
-    paddingVertical: hp(8),
-    width: wp(80),
-    alignItems: "center",
-    borderRadius: 3,
-    justifyContent: "center",
-  },
-  actionButtonText: {
-    // fontFamily: "Graphik-Medium",
-    fontSize: 10,
-    color: Colors.Smoke400,
-    opacity: 0.7,
-  },
-  uploadButton: {
-    height: hp(60),
-    width: wp(325),
-    alignItems: "center",
-    justifyContent: "center",
-    alignSelf: "center",
-    backgroundColor: Colors.PaleBlue,
-    borderRadius: hp(4),
-  },
-
-  plusIcon: {
-    height: hp(15),
-    width: wp(15),
-  },
-  uploadText: {
-    marginLeft: wp(15),
-    fontSize: hp(14),
-    color: Colors.DarkBlue,
-    lineHeight: hp(14),
   },
 });

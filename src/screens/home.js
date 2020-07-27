@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Actions } from "react-native-router-flux";
-
-import { StyleSheet, SafeAreaView, Image, Dimensions } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { StyleSheet, Image } from "react-native";
 import {
   hp,
   RegularText,
@@ -10,11 +10,18 @@ import {
   MainView,
   BackgroundView,
   DarkBlue,
+  TransactionLoader,
 } from "../common";
 import { Guest } from "../assets/images";
 import { StatusBar } from "expo-status-bar";
+import { getAllActivities } from "../store/actions/activityAction";
 
-export const Home = ({ navigation }) => {
+export const Home = () => {
+  const { loading } = useSelector(state => state.activity);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllActivities());
+  }, []);
   return (
     <>
       <StatusBar backgroundColor={DarkBlue} />
@@ -40,6 +47,7 @@ export const Home = ({ navigation }) => {
           />
         </MainView>
       </BackgroundView>
+      {loading && <TransactionLoader />}
     </>
   );
 };

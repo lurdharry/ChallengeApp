@@ -1,13 +1,12 @@
 /* eslint-disable consistent-return */
 import React, { useState } from "react";
-import { StyleSheet, View, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
   hp,
   wp,
   TextInput,
   TextArea,
-  RegularText,
   Button,
   TransactionLoader,
   MainView,
@@ -20,9 +19,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import * as Colors from "../common/Colors";
 import { createActivity } from "../store/actions/activityAction";
-import { StatusBar } from "expo-status-bar";
 
-export const CreateActivity = ({ navigation }) => {
+export const CreateActivity = () => {
   const [title, setTitle] = useState("");
   const [description, setdescription] = useState("");
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -128,7 +126,7 @@ export const CreateActivity = ({ navigation }) => {
               onCancel={hideDatePicker}
               minimumDate={new Date()}
               timePickerModeAndroid="spinner"
-              minuteInterval={10}
+              minuteInterval={30}
             />
           </KeyboardAwareScrollView>
         </MainView>

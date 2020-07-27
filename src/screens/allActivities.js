@@ -1,27 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-  FlatList,
-} from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import {
   hp,
-  RegularText,
-  Red,
-  PaBlack200,
   wp,
-  Button,
-  PaYellow,
   TransactionLoader,
   BlackCoral,
   Snow300,
-  Smoke100,
   ActivePaycodeCard,
   BottomSheet,
   DeleteBottomSheet,
@@ -29,25 +14,21 @@ import {
   Header,
   MainView,
   BackgroundView,
+  sortData,
+  HeaderRightView,
+  EmptyActivity,
 } from "../common";
 import * as Colors from "../common/Colors";
-import { AntDesign } from "@expo/vector-icons";
-import {
-  deleteActivity,
-  getAllActivities,
-} from "../store/actions/activityAction";
-import { Logo } from "../assets/images";
-import moment from "moment";
+import { deleteActivity } from "../store/actions/activityAction";
 import { Actions } from "react-native-router-flux";
 
 class Activity extends Component {
   state = {
     details: null,
     id: "",
+    allActivities: this.props.activities,
   };
-  componentDidMount() {
-    this.props.getAllActivities();
-  }
+
   confirmDeleteBottomSheet = ref => {
     this.DeleteBottomSheet = ref;
   };
@@ -65,12 +46,32 @@ class Activity extends Component {
     this.setState({ id }, this.DeleteBottomSheet.open());
   };
 
+  handleAscend = () => {
+    const data = sortData(this.props.activities);
+    this.setState({ allActivities: data });
+  };
+  handleDescend = () => {
+    const data = sortData(this.props.activities);
+
+    this.setState({ allActivities: data.reverse() });
+  };
+
   render() {
-    const { loading, activities } = this.props;
+    const { loading } = this.props;
+    const { allActivities } = this.state;
     return (
       <>
         <BackgroundView style={{ paddingTop: hp(35) }}>
-          <Header title="My Activities" titleStyle={styles.headerText} />
+          <Header
+            title="My Activities"
+            titleStyle={styles.headerText}
+            right={
+              <HeaderRightView
+                onDescend={() => this.handleDescend()}
+                onAscend={() => this.handleAscend()}
+              />
+            }
+          />
           <MainView>
             <BottomSheet
               openRef={this.confirmDeleteBottomSheet}
@@ -89,7 +90,7 @@ class Activity extends Component {
             />
             <FlatList
               contentContainerStyle={{ paddingBottom: hp(20) }}
-              data={activities}
+              data={allActivities}
               showsVerticalScrollIndicator={true}
               renderItem={({ item }) => (
                 <ActivePaycodeCard
@@ -100,6 +101,9 @@ class Activity extends Component {
                 />
               )}
               keyExtractor={(item, index) => index.toString()}
+              ListEmptyComponent={
+                <EmptyActivity onPress={() => Actions.create_activity()} />
+              }
             />
           </MainView>
         </BackgroundView>
@@ -118,7 +122,6 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = {
   deleteActivity,
-  getAllActivities,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Activity);
@@ -127,6 +130,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     color: Colors.White,
+    marginLeft: wp(80),
   },
   amount: {
     fontSize: hp(12),

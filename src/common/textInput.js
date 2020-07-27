@@ -127,7 +127,11 @@ const TextArea = ({
           value={value || ""}
           rowSpan={rowSpan || 4}
           bordered
-          style={[styles.textArea, isInFocus && styles.isInFocus]}
+          style={[
+            styles.textArea,
+            isInFocus && styles.isInFocus,
+            value.length && styles.activeinput,
+          ]}
           placeholderTextColor={placeholderTextColor || Colors.LightGrey}
           onChangeText={onChangeText}
           onFocus={handleFocus}
@@ -143,7 +147,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   label: {
-    color: Colors.LightGrey,
+    color: Colors.DarkBlue,
     fontSize: 12,
     marginBottom: hp(10),
   },
@@ -161,7 +165,7 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 12,
-    // fontFamily: "Graphik-Regular",
+    fontFamily: "Graphik-Regular",
     color: Colors.BlackCoral,
     fontStyle: "normal",
     // flexGrow: 1,
@@ -169,7 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   activeinput: {
-    // fontFamily: "Graphik-Medium",
+    fontFamily: "Graphik-Medium",
     color: Colors.Grey200,
   },
   icon: {
@@ -184,12 +188,7 @@ const styles = StyleSheet.create({
     color: Colors.Red,
     marginTop: hp(13),
   },
-  inputGroupErrorMessage: {
-    color: Colors.Red,
-    alignSelf: "flex-start",
-    paddingHorizontal: wp(5),
-    marginTop: hp(10),
-  },
+
   isInFocus: {
     borderColor: Colors.DarkBlue,
     borderWidth: 1,
@@ -199,41 +198,6 @@ const styles = StyleSheet.create({
     borderColor: Colors.Red,
   },
 
-  inputGroupLabel: {
-    alignSelf: "flex-start",
-    color: Colors.LightGrey,
-  },
-  inputGroupContainer: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    width: wp(330),
-  },
-  inputGroup: {
-    width: wp(271),
-    height: hp(50),
-    marginTop: hp(10),
-    borderColor: Colors.Platinum,
-    borderTopLeftRadius: 4,
-    borderBottomLeftRadius: 4,
-    borderWidth: 0.5,
-    color: Colors.BlackCoral,
-    fontFamily: "Graphik-Regular",
-    fontSize: 12,
-    paddingLeft: wp(10),
-    fontStyle: "normal",
-  },
-  currencyView: {
-    justifyContent: "center",
-    alignItems: "center",
-    width: wp(54),
-    height: hp(50),
-    borderWidth: 0.5,
-    borderTopRightRadius: 4,
-    borderBottomRightRadius: 4,
-    alignSelf: "flex-end",
-  },
   textArea: {
     borderWidth: 0.5,
     borderColor: Colors.Smoke300,
@@ -242,6 +206,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 14,
     color: Colors.BlackCoral,
+    fontFamily: "Graphik-Regular",
     fontStyle: "normal",
     borderRadius: 4,
     marginTop: 0,

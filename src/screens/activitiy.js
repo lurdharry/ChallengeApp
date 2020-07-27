@@ -1,13 +1,12 @@
 /* eslint-disable consistent-return */
 import React, { useState } from "react";
-import { StyleSheet, View, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
   hp,
   wp,
   TextInput,
   TextArea,
-  RegularText,
   Button,
   TransactionLoader,
   BackgroundView,
@@ -23,7 +22,7 @@ import { editActivity } from "../store/actions/activityAction";
 
 export const Details = props => {
   const { title, description, startDate, endDate, id } = props.data;
-  const [tag, set_tag] = useState(id);
+  const [] = useState(id);
 
   const [name, setName] = useState(title);
   const [desc, set_description] = useState(description);
