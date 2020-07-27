@@ -9,7 +9,7 @@ import moment from "moment";
 
 export const ActivePaycodeCard = ({ details, onPress, onDelete, onEdit }) => {
   const { title, startDate } = details;
-  const date = moment(startDate).format("LLLL");
+  const date = moment(startDate).format("LLL");
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.card}>
       <View style={{ flexDirection: "row" }}>
