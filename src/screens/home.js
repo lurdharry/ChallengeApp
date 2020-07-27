@@ -15,6 +15,7 @@ import {
 import { Guest } from "../assets/images";
 import { StatusBar } from "expo-status-bar";
 import { getAllActivities } from "../store/actions/activityAction";
+import { homeStyles as styles } from "./allStyles";
 
 export const Home = () => {
   const { loading } = useSelector(state => state.activity);
@@ -51,39 +52,3 @@ export const Home = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  picture: {
-    height: hp(200),
-    width: wp(130),
-    alignSelf: "center",
-    marginTop: hp(30),
-  },
-  buttonContainer: {
-    alignSelf: "center",
-    width: wp(300),
-    height: hp(50),
-    marginTop: hp(30),
-  },
-  button: {
-    width: wp(300),
-    height: hp(50),
-    alignSelf: "center",
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  title: {
-    marginLeft: wp(25),
-    fontSize: hp(40),
-    textAlign: "center",
-    // marginTop: hp(30),
-    alignSelf: "flex-start",
-  },
-  action: {
-    fontSize: hp(20),
-    textAlign: "center",
-    marginTop: hp(40),
-  },
-});

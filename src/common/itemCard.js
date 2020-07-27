@@ -7,15 +7,14 @@ import { AntDesign } from "@expo/vector-icons";
 import { Logo } from "../assets/images";
 import moment from "moment";
 
-export const ActivePaycodeCard = ({ details, onPress, onDelete, onEdit }) => {
+export const WideCard = ({ details, onPress, onDelete, onEdit }) => {
   const { title, startDate } = details;
   const date = moment(startDate).format("LLL");
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.card}>
       <View style={{ flexDirection: "row" }}>
-        <View style={{ alignSelf: "center" }}>
-          <Image source={Logo} resizeMode="contain" style={styles.icon} />
-        </View>
+        <Image source={Logo} resizeMode="contain" style={styles.icon} />
+
         <View style={styles.codeBox}>
           <RegularText title={title} style={styles.title} />
           <RegularText title={date} style={styles.time} />
@@ -45,9 +44,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   title: {
-    fontSize: hp(14),
-    lineHeight: hp(12),
-    // fontWeight: "500",
+    fontSize: 14,
+    lineHeight: 14,
     color: Colors.Grey200,
     marginBottom: hp(13),
   },

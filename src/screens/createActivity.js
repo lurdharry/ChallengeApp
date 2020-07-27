@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import * as Colors from "../common/Colors";
 import { createActivity } from "../store/actions/activityAction";
+import { createActivityStyles as styles } from "./allStyles";
 
 export const CreateActivity = () => {
   const [title, setTitle] = useState("");
@@ -135,52 +136,3 @@ export const CreateActivity = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  headerText: {
-    fontSize: 20,
-    color: Colors.White,
-  },
-  container: {
-    backgroundColor: Colors.DarkBlue,
-    flex: 1,
-  },
-  inputView: {
-    backgroundColor: Colors.White,
-    borderTopLeftRadius: hp(20),
-    borderTopRightRadius: hp(20),
-    paddingTop: hp(10),
-  },
-  createButton: {
-    width: wp(325),
-    height: hp(52),
-    alignSelf: "center",
-    marginTop: hp(60),
-  },
-  nameContainer: {
-    width: wp(325),
-    marginVertical: 0,
-    marginTop: hp(18),
-    height: hp(50),
-    alignSelf: "center",
-  },
-  buttonStyle: {
-    width: wp(325),
-    height: hp(52),
-    alignSelf: "center",
-    marginTop: hp(15),
-  },
-  titleInput: {
-    width: wp(325),
-    alignSelf: "center",
-  },
-  // labeStyle: {
-  //   marginLeft: wp(25),
-  // },
-  descriptionInput: {
-    width: wp(325),
-    alignSelf: "center",
-    marginTop: hp(15),
-    marginBottom: hp(15),
-  },
-});

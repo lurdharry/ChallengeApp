@@ -1,10 +1,8 @@
 /* eslint-disable consistent-return */
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
   hp,
-  wp,
   TextInput,
   TextArea,
   Button,
@@ -17,8 +15,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as Colors from "../common/Colors";
 import { editActivity } from "../store/actions/activityAction";
+import { activityStyles as styles } from "./allStyles";
 
 export const Details = props => {
   const { title, description, startDate, endDate, id } = props.data;
@@ -66,7 +64,6 @@ export const Details = props => {
       <BackgroundView style={{ paddingTop: hp(35) }}>
         <Header title="Edit Activity" titleStyle={styles.headerText} />
         <MainView>
-          {/* <View style={styles.container}> */}
           <KeyboardAwareScrollView style={styles.inputView}>
             <TextInput
               value={name}
@@ -137,52 +134,3 @@ export const Details = props => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  headerText: {
-    fontSize: 20,
-    color: Colors.White,
-  },
-  container: {
-    backgroundColor: Colors.DarkBlue,
-    flex: 1,
-  },
-  inputView: {
-    backgroundColor: Colors.White,
-    borderTopLeftRadius: hp(20),
-    borderTopRightRadius: hp(20),
-    paddingTop: hp(10),
-  },
-  createButton: {
-    width: wp(325),
-    height: hp(52),
-    alignSelf: "center",
-    marginTop: hp(60),
-  },
-  nameContainer: {
-    width: wp(325),
-    marginVertical: 0,
-    marginTop: hp(18),
-    height: hp(50),
-    alignSelf: "center",
-  },
-  buttonStyle: {
-    width: wp(325),
-    height: hp(52),
-    alignSelf: "center",
-    marginTop: hp(15),
-  },
-  titleInput: {
-    width: wp(325),
-    alignSelf: "center",
-  },
-  labeStyle: {
-    marginLeft: wp(25),
-  },
-  descriptionInput: {
-    width: wp(325),
-    alignSelf: "center",
-    marginTop: hp(15),
-    marginBottom: hp(15),
-  },
-});
