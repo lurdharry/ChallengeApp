@@ -1,17 +1,18 @@
 import React, { Component } from "react";
+import { SafeAreaView } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./src/store";
-import RootNavigator from "./src/common/router";
-import { NavigationContainer } from "@react-navigation/native";
+
+import Router from "./src/common/router";
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <NavigationContainer>
-            <RootNavigator />
-          </NavigationContainer>
+          <SafeAreaView style={{ flex: 1 }}>
+            <Router />
+          </SafeAreaView>
         </PersistGate>
       </Provider>
     );
