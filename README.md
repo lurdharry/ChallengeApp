@@ -4,7 +4,7 @@ A demo app which allows user to create an activity/task.
 The added activities can be edited and deleted.
 
 
-![App Preveiw](preview/preview.gif)
+![App Preveiw](Preview/preview.gif)
 
 ## Getting Started
 Note:if you do not have expo-cli installed on your machine
