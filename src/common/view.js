@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { hp, wp, Button, RegularText } from "./index";
 import * as Colors from "./Colors";
+import { empty } from "../assets/images";
 
 export const BackgroundView = props => {
   return <View style={[styles.background, props.style]}>{props.children}</View>;
@@ -33,20 +34,22 @@ export const HeaderRightView = ({ onAscend, onDescend }) => (
 export const EmptyActivity = ({ onPress }) => (
   <View
     style={{
-      marginTop: hp(50),
+      marginTop: hp(70),
       alignItems: "center",
       marginHorizontal: wp(30),
     }}
   >
+    <Image source={empty} resizeMode="contain" style={styles.emptyImage} />
     <RegularText
       title="Your Activity List is currently empty"
-      style={[{ textAlign: "center", fontSize: 40, marginBottom: hp(50) }]}
+      style={[{ textAlign: "center", fontSize: 20, marginBottom: hp(80) }]}
     />
     <Button title="Add an Activity" onPress={onPress} />
   </View>
 );
 
 const styles = StyleSheet.create({
+  emptyImage: { width: wp(300), height: hp(195), marginBottom: hp(60) },
   background: {
     flex: 1,
     backgroundColor: Colors.DarkBlue,

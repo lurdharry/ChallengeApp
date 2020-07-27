@@ -24,6 +24,7 @@ class App extends Component {
         require("./src/assets/images/activitylogo.png"),
         require("./src/assets/images/guest.png"),
         require("./src/assets/images/logo.png"),
+        require("./src/assets/images/empty.png"),
       ]),
     ]);
   };

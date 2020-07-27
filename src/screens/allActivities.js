@@ -17,6 +17,7 @@ import {
   sortData,
   HeaderRightView,
   EmptyActivity,
+  RegularText,
 } from "../common";
 import * as Colors from "../common/Colors";
 import { deleteActivity } from "../store/actions/activityAction";
@@ -64,15 +65,21 @@ class Activity extends Component {
         <BackgroundView style={{ paddingTop: hp(35) }}>
           <Header
             title="My Activities"
-            titleStyle={styles.headerText}
+            titleStyle={[
+              styles.headerText,
+              { marginLeft: allActivities.length ? wp(80) : wp(25) },
+            ]}
             right={
-              <HeaderRightView
-                onDescend={() => this.handleDescend()}
-                onAscend={() => this.handleAscend()}
-              />
+              allActivities.length ? (
+                <HeaderRightView
+                  onDescend={() => this.handleDescend()}
+                  onAscend={() => this.handleAscend()}
+                />
+              ) : null
             }
           />
           <MainView>
+            <RegularText />
             <BottomSheet
               openRef={this.confirmDeleteBottomSheet}
               render={
@@ -130,7 +137,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     color: Colors.White,
-    marginLeft: wp(80),
   },
   amount: {
     fontSize: hp(12),

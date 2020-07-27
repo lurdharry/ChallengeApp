@@ -36,7 +36,7 @@ export const Home = () => {
           <Button
             buttonStyle={styles.button}
             containerStyle={styles.buttonContainer}
-            title="create an activity"
+            title="Create an Activity"
             onPress={() => Actions.create_activity()}
           />
           <Button
