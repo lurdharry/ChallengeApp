@@ -22,8 +22,8 @@ export const ActivePaycodeCard = ({ details, onPress, onDelete, onEdit }) => {
         </View>
       </View>
       <View style={{ flexDirection: "row", alignSelf: "baseline" }}>
-        <TouchableOpacity onPress={onEdit}>
-          <AntDesign name="edit" size={14} color={Colors.LightBlue} />
+        <TouchableOpacity onPress={onEdit} style={{ marginRight: wp(10) }}>
+          <AntDesign name="edit" size={14} color={Colors.DarkBlue} />
         </TouchableOpacity>
         <TouchableOpacity onPress={onDelete} style={{ marginLeft: wp(10) }}>
           <AntDesign name="delete" size={14} color={Red} />
